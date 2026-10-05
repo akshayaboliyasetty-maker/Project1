@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login - FlavourNest</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <h1>
+            🍴 FlavourNest
+        </h1>
+
+        <p class="sub">
+            Welcome back, food lover!
+        </p>
+
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email"
+        >
+
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+
+        <button onclick="login()">
+            Login
+        </button>
+
+
+        <div
+            id="message"
+            class="message">
+        </div>
+
+
+        <p style="text-align:center;margin-top:20px">
+
+            New here?
+
+            <a href="signup.html">
+                Create an account
+            </a>
+
+        </p>
+
+
+        <p style="text-align:center;margin-top:15px">
+
+            <a href="index.html">
+                ← Back to Home
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function login() {
+
+    let email =
+        document.getElementById("email").value;
+
+    let password =
+        document.getElementById("password").value;
+
+
+    let users =
+        JSON.parse(
+            localStorage.getItem("users")
+        ) || [];
+
+
+    let user =
+        users.find(function(u) {
+
+            return (
+                u.email === email &&
+                u.password === password
+            );
+
+        });
+
+
+    let message =
+        document.getElementById("message");
+
+    message.style.display = "block";
+
+
+    if (user) {
+
+        localStorage.setItem(
+            "currentUser",
+            JSON.stringify(user)
+        );
+
+        message.innerText =
+            "Login successful! 🍴";
+
+        setTimeout(function() {
+
+            window.location.href =
+                "user.html";
+
+        }, 800);
+
+    }
+
+    else {
+
+        message.innerText =
+            "Invalid email or password.";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

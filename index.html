@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FlavourNest - Food Recipe App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🍴 Flavour<span>Nest</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#categories">Categories</a>
+        <a href="user.html">My Favourites</a>
+        <a href="admin.html">Admin</a>
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            WELCOME TO FLAVOURNEST
+        </p>
+
+        <h1>
+            Discover Your
+            <span>Perfect Recipe</span>
+        </h1>
+
+        <p class="hero-text">
+            Explore delicious recipes, discover new flavours,
+            and make every meal special.
+        </p>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search your favourite recipe..."
+            >
+
+            <button onclick="searchRecipes()">
+                Search
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section categories" id="categories">
+
+    <div class="section-heading">
+
+        <p>EXPLORE</p>
+
+        <h2>Recipe Categories</h2>
+
+        <span>
+            Find something delicious for every mood 🍽️
+        </span>
+
+    </div>
+
+
+    <div class="category-container">
+
+        <div
+            class="category-card"
+            onclick="filterCategory('breakfast')"
+        >
+
+            <div class="category-icon">
+                🍳
+            </div>
+
+            <h3>Breakfast</h3>
+
+            <p>
+                Start your day deliciously
+            </p>
+
+        </div>
+
+
+        <div
+            class="category-card"
+            onclick="filterCategory('biryani')"
+        >
+
+            <div class="category-icon">
+                🍚
+            </div>
+
+            <h3>Biryani</h3>
+
+            <p>
+                Rich & aromatic flavours
+            </p>
+
+        </div>
+
+
+        <div
+            class="category-card"
+            onclick="filterCategory('veg')"
+        >
+
+            <div class="category-icon">
+                🥗
+            </div>
+
+            <h3>Vegetarian</h3>
+
+            <p>
+                Fresh & tasty recipes
+            </p>
+
+        </div>
+
+
+        <div
+            class="category-card"
+            onclick="showAllRecipes()"
+        >
+
+            <div class="category-icon">
+                🍽️
+            </div>
+
+            <h3>All Recipes</h3>
+
+            <p>
+                Explore everything
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RECIPES ================= -->
+
+<section class="section recipes" id="recipes">
+
+    <div class="section-heading">
+
+        <p>OUR SPECIALS</p>
+
+        <h2>Popular Recipes</h2>
+
+        <span>
+            Hand-picked recipes loved by foodies ❤️
+        </span>
+
+    </div>
+
+
+    <div class="recipe-container">
+
+
+        <!-- BREAKFAST -->
+
+        <div
+            class="recipe-card"
+            data-category="breakfast"
+        >
+
+            <div class="image-box">
+
+                <img
+                    src="brkfast.jpg"
+                    alt="Breakfast"
+                >
+
+                <span class="badge">
+                    POPULAR
+                </span>
+
+                <button
+                    class="heart"
+                    onclick="addFavourite(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <div class="recipe-info">
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <h3>
+                    Classic Breakfast
+                </h3>
+
+                <p>
+                    A delicious and healthy breakfast
+                    to start your morning.
+                </p>
+
+                <div class="recipe-bottom">
+
+                    <span>
+                        ⏱ 20 mins
+                    </span>
+
+                    <span>
+                        🔥 Easy
+                    </span>
+
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="openRecipe('Classic Breakfast')"
+                >
+                    View Recipe →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SPECIAL BIRYANI -->
+
+        <div
+            class="recipe-card"
+            data-category="biryani"
+        >
+
+            <div class="image-box">
+
+                <img
+                    src="spclbiryani.jpg"
+                    alt="Special Biryani"
+                >
+
+                <span class="badge special">
+                    CHEF'S SPECIAL
+                </span>
+
+                <button
+                    class="heart"
+                    onclick="addFavourite(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <div class="recipe-info">
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <h3>
+                    Royal Special Biryani
+                </h3>
+
+                <p>
+                    Aromatic basmati rice with rich
+                    spices and unforgettable flavour.
+                </p>
+
+                <div class="recipe-bottom">
+
+                    <span>
+                        ⏱ 60 mins
+                    </span>
+
+                    <span>
+                        🔥 Medium
+                    </span>
+
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="openRecipe('Royal Special Biryani')"
+                >
+                    View Recipe →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- VEG BIRYANI -->
+
+        <div
+            class="recipe-card"
+            data-category="veg"
+        >
+
+            <div class="image-box">
+
+                <img
+                    src="vegbiryani.avif"
+                    alt="Veg Biryani"
+                >
+
+                <span class="badge veg">
+                    VEGETARIAN
+                </span>
+
+                <button
+                    class="heart"
+                    onclick="addFavourite(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <div class="recipe-info">
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <h3>
+                    Hyderabadi Veg Biryani
+                </h3>
+
+                <p>
+                    Fragrant rice cooked with fresh
+                    vegetables and aromatic spices.
+                </p>
+
+                <div class="recipe-bottom">
+
+                    <span>
+                        ⏱ 45 mins
+                    </span>
+
+                    <span>
+                        🌱 Healthy
+                    </span>
+
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="openRecipe('Hyderabadi Veg Biryani')"
+                >
+                    View Recipe →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHEF SPECIAL -->
+
+        <div
+            class="recipe-card"
+            data-category="special"
+        >
+
+            <div class="image-box">
+
+                <img
+                    src="foodimg.webp"
+                    alt="Chef Special"
+                >
+
+                <span class="badge">
+                    MUST TRY
+                </span>
+
+                <button
+                    class="heart"
+                    onclick="addFavourite(this)"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+
+            <div class="recipe-info">
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <h3>
+                    Chef's Special
+                </h3>
+
+                <p>
+                    A mouth-watering dish prepared
+                    with carefully selected ingredients.
+                </p>
+
+                <div class="recipe-bottom">
+
+                    <span>
+                        ⏱ 35 mins
+                    </span>
+
+                    <span>
+                        🔥 Medium
+                    </span>
+
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="openRecipe('Chef Special')"
+                >
+                    View Recipe →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section why-us">
+
+    <div class="section-heading">
+
+        <p>
+            WHY FLAVOURNEST?
+        </p>
+
+        <h2>
+            Made For Food Lovers ❤️
+        </h2>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div>🍴</div>
+
+            <h3>
+                Easy Recipes
+            </h3>
+
+            <p>
+                Simple recipes that anyone
+                can prepare.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>⭐</div>
+
+            <h3>
+                Best Recipes
+            </h3>
+
+            <p>
+                Discover popular and
+                delicious dishes.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>❤️</div>
+
+            <h3>
+                Save Favourites
+            </h3>
+
+            <p>
+                Save your favourite
+                recipes easily.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>👨‍🍳</div>
+
+            <h3>
+                Chef Inspired
+            </h3>
+
+            <p>
+                Recipes inspired by
+                amazing flavours.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about">
+
+    <div class="about-content">
+
+        <p class="about-title">
+            ABOUT US
+        </p>
+
+        <h2>
+            Cook Something
+            <span>Wonderful Today.</span>
+        </h2>
+
+        <p>
+            FlavourNest is a food recipe platform
+            where users can discover delicious recipes,
+            explore categories and save their favourite dishes.
+        </p>
+
+        <button
+            onclick="location.href='signup.html'"
+        >
+            Join FlavourNest →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        🍴 FlavourNest
+    </div>
+
+    <p>
+        Discover • Cook • Enjoy
+    </p>
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="#recipes">
+            Recipes
+        </a>
+
+        <a href="#categories">
+            Categories
+        </a>
+
+        <a href="login.html">
+            Login
+        </a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 FlavourNest | Food Recipe App
+    </p>
+
+</footer>
+
+
+<script>
+
+/* SEARCH */
+
+function searchRecipes() {
+
+    let search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let cards =
+        document.querySelectorAll(".recipe-card");
+
+    let found = false;
+
+    cards.forEach(function(card) {
+
+        let name =
+            card
+            .querySelector("h3")
+            .innerText
+            .toLowerCase();
+
+        if (
+            name.includes(search) ||
+            search === ""
+        ) {
+
+            card.style.display = "block";
+
+            found = true;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    if (!found) {
+
+        alert(
+            "Recipe not found! Try Biryani or Breakfast 😊"
+        );
+
+    }
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterCategory(category) {
+
+    let cards =
+        document.querySelectorAll(".recipe-card");
+
+    cards.forEach(function(card) {
+
+        if (
+            card.dataset.category === category
+        ) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document
+        .getElementById("recipes")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* SHOW ALL */
+
+function showAllRecipes() {
+
+    let cards =
+        document.querySelectorAll(".recipe-card");
+
+    cards.forEach(function(card) {
+
+        card.style.display = "block";
+
+    });
+
+}
+
+
+/* FAVOURITES */
+
+function addFavourite(button) {
+
+    let card =
+        button.closest(".recipe-card");
+
+    let recipe =
+        card.querySelector("h3").innerText;
+
+    let favourites =
+        JSON.parse(
+            localStorage.getItem("favourites")
+        ) || [];
+
+    if (!favourites.includes(recipe)) {
+
+        favourites.push(recipe);
+
+        localStorage.setItem(
+            "favourites",
+            JSON.stringify(favourites)
+        );
+
+        button.innerText = "♥";
+
+        alert(
+            recipe +
+            " added to favourites ❤️"
+        );
+
+    } else {
+
+        alert(
+            "Already added to favourites!"
+        );
+
+    }
+
+}
+
+
+/* OPEN RECIPE */
+
+function openRecipe(recipe) {
+
+    localStorage.setItem(
+        "selectedRecipe",
+        recipe
+    );
+
+    window.location.href =
+        "foodrecipeapp1.html";
+
+}
+
+
+/* ENTER SEARCH */
+
+document
+.getElementById("searchInput")
+.addEventListener(
+    "keypress",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            searchRecipes();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

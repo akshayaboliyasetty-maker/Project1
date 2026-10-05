@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Signup - FlavourNest</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <h1>
+            🍴 Join FlavourNest
+        </h1>
+
+        <p class="sub">
+            Create your recipe account
+        </p>
+
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Full Name"
+        >
+
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email"
+        >
+
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+        >
+
+
+        <button onclick="signup()">
+            Create Account
+        </button>
+
+
+        <div
+            id="message"
+            class="message">
+        </div>
+
+
+        <p style="text-align:center;margin-top:20px">
+
+            Already have an account?
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </p>
+
+
+        <p style="text-align:center;margin-top:15px">
+
+            <a href="index.html">
+                ← Back to Home
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function signup() {
+
+    let name =
+        document.getElementById("name").value.trim();
+
+    let email =
+        document.getElementById("email").value.trim();
+
+    let password =
+        document.getElementById("password").value;
+
+    let confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+
+    let message =
+        document.getElementById("message");
+
+    message.style.display = "block";
+
+
+    if (
+        name === "" ||
+        email === "" ||
+        password === ""
+    ) {
+
+        message.innerText =
+            "Please fill all fields.";
+
+        return;
+
+    }
+
+
+    if (
+        password !== confirmPassword
+    ) {
+
+        message.innerText =
+            "Passwords do not match.";
+
+        return;
+
+    }
+
+
+    let users =
+        JSON.parse(
+            localStorage.getItem("users")
+        ) || [];
+
+
+    let exists =
+        users.some(function(user) {
+
+            return user.email === email;
+
+        });
+
+
+    if (exists) {
+
+        message.innerText =
+            "Account already exists.";
+
+        return;
+
+    }
+
+
+    users.push({
+
+        name: name,
+
+        email: email,
+
+        password: password
+
+    });
+
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+
+    message.innerText =
+        "Account created successfully! 🎉";
+
+
+    setTimeout(function() {
+
+        window.location.href =
+            "login.html";
+
+    }, 1000);
+
+}
+
+</script>
+
+</body>
+</html>

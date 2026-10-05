@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - FlavourNest</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        🍴 Flavour<span>Nest</span>
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="user.html">
+            User
+        </a>
+
+        <a
+            href="login.html"
+            class="login-btn"
+        >
+            Login
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <p>
+            ADMIN MODULE
+        </p>
+
+        <h2>
+            FlavourNest Dashboard
+        </h2>
+
+        <span>
+            Manage your Food Recipe Application
+        </span>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div>
+                👥
+            </div>
+
+            <h3 id="userCount">
+                0
+            </h3>
+
+            <p>
+                Registered Users
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>
+                🍴
+            </div>
+
+            <h3>
+                4
+            </h3>
+
+            <p>
+                Available Recipes
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>
+                ❤️
+            </div>
+
+            <h3 id="favouriteCount">
+                0
+            </h3>
+
+            <p>
+                Favourite Recipes
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div>
+                ⭐
+            </div>
+
+            <h3>
+                5.0
+            </h3>
+
+            <p>
+                App Rating
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECIPE MANAGEMENT -->
+
+    <div
+        class="dash-box"
+        style="
+        margin-top:40px;
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        "
+    >
+
+        <h2>
+            📋 Recipe Management
+        </h2>
+
+        <p
+            style="
+            margin-top:15px;
+            color:#81766e;
+            "
+        >
+            Recipes currently available
+            in FlavourNest:
+        </p>
+
+
+        <div
+            style="
+            margin-top:20px;
+            line-height:2.5;
+            "
+        >
+
+            🍳 Classic Breakfast
+
+            <br>
+
+            🍛 Royal Special Biryani
+
+            <br>
+
+            🥗 Hyderabadi Veg Biryani
+
+            <br>
+
+            🍽️ Chef's Special
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* USER COUNT */
+
+let users =
+    JSON.parse(
+        localStorage.getItem("users")
+    ) || [];
+
+
+document.getElementById(
+    "userCount"
+).innerText = users.length;
+
+
+/* FAVOURITE COUNT */
+
+let favourites =
+    JSON.parse(
+        localStorage.getItem("favourites")
+    ) || [];
+
+
+document.getElementById(
+    "favouriteCount"
+).innerText =
+    favourites.length;
+
+</script>
+
+</body>
+</html>
